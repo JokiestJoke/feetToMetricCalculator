@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href='./index.css' type="text/css" rel='stylesheet'/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Feet to Measurement Calculator</title>
+    </head>
+    <body>
+        <form>
+            <p>What is your starting measurment in feet?</p>
+            <input id='userInput' placeholder="Input measurement" />
+            <p>Convert to what unit of measurement</p>
+            <select id='dropDown'>
+                <option id='meter' value='1'>Meter</option>
+                <option id='kilometer' value='2'>Kilometer</option>
+                <option id='centimeter' value='3'>Centimeter</option>
+                <option id='millimeter' value='4'>Millimeter</option>
+                <!-- <option id='light'>Lightyear</option> -->
+            </select>
+            <br>
+            <br>
+            <button id="calcButton">
+                Calculate! 
+            </button>
+        </form>
+        <script type="text/javascript" src="DOMEvents.js"></script>
+        <!-- <script type="module" src="calculator.js"></script> -->
+    </body>
+</html>

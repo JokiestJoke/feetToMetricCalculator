@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    align-content: space-between;
+    margin-top: 18em;
+    text-align: center;
+}
+
+body,
+select {
+    justify-content: center
+}
+
+select {
+    background-color: grey;
+    color: white;
+}
+
+input {
+    background-color: whitesmoke;
+}
+button {
+    background-color: grey;
+    color: white;
+}
