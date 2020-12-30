@@ -13,8 +13,8 @@ class Calculator {
     }
 
     set measurment(newMeasurement){
-        if (newMeasurement != '' && typeof(newMeasurement) === 'integer'){
-            this._measurement = newMeasurement;
+        if (newMeasurement != '' && typeof(newMeasurement) === 'number'){
+            return this._measurement = newMeasurement;
         } else {
             console.log("This Field Must be filled")
         }
@@ -49,6 +49,8 @@ const centimeter = document.getElementById('centimeter');
 const millimeter = document.getElementById('millimeter');
 const dropDown = document.getElementById('dropDown');
 const userInput = document.getElementById('userInput');
+// const userInput = typeof(document.getElementById('userInput').value) === "number" ? document.getElementById('userInput') : alert("You must add a number");
+
 
 const hoverOverText = (e) => {
     let target = e.target;
@@ -72,23 +74,26 @@ const revertHoverText = (e) => {
 
 const calculationStation = (e) => {
     let target = e.target;
+    let pluralDecider = userInput.value > 1 ? "feet are" : "foot is";
     if (target === calcButton && dropDown.value === "1") {
         let feetToMeter = new Calculator(userInput.value);
-        alert(`${feetToMeter.measurement} is ${feetToMeter.convertToMeter()} meters.`);
+        alert(`${feetToMeter.measurement} ${pluralDecider} ${feetToMeter.convertToMeter()} meters.`);
     } else if (target === calcButton && dropDown.value === "2"){
         let feetToKilometer = new Calculator(userInput.value);
-        alert(`${feetToKilometer.measurement} is ${feetToKilometer.convertToKilometer()} kilometers.`);
+        alert(`${feetToKilometer.measurement} ${pluralDecider} ${feetToKilometer.convertToKilometer()} kilometers.`);
     } else if (target === calcButton && dropDown.value === "3"){
         let feetToCentimeter = new Calculator(userInput.value);
-        alert(`${feetToCentimeter.measurement} is ${feetToCentimeter.convertToCentimer()} centimeters.`);
+        alert(`${feetToCentimeter.measurement} ${pluralDecider} ${feetToCentimeter.convertToCentimer()} centimeters.`);
     } else if (target === calcButton && dropDown.value === "4"){
         let feetToMillimeter = new Calculator(userInput.value);
-        alert(`${feetToMillimeter.measurement} is ${feetToMillimeter.convertToMillimeter()} millimeters.`);
+        alert(`${feetToMillimeter.measurement} ${pluralDecider} ${feetToMillimeter.convertToMillimeter()} millimeters.`);
     } else {
-        console.log("Nah Bitch")
+        console.log("Error has occured in the calculationStation event handler");
     }
 
 }
+
+
 
 calcButton.addEventListener("mouseover", hoverOverText);
 calcButton.addEventListener("mouseout", revertHoverText);
